@@ -7,7 +7,7 @@ import Authentication from "./routes/authentication/authentication.component";
 const Shop = () => {
   return (
     <div>
-      <h1>Iam the page</h1>
+      <h1> the shop page </h1>
     </div>
   );
 };
@@ -16,11 +16,12 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<Navigation />}>
-        <Route index path="home" element={<Home />} />
+        <Route index element={<Home /> } />
         <Route path="shop" element={<Shop />} />
         <Route path="auth" element={<Authentication />} />
       </Route>
     </Routes>
+    
   );
 }
 

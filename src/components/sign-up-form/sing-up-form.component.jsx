@@ -36,12 +36,18 @@ const SignUpForm = () => {
       const { user } = await createAuthUserWithEmailAndPassowrd(
         email,
         password
-      );
-      // console.log(response);
+      ); 
+      // console.log();
       await createUserDocumentFromAuth(user, { displayName });
       resetFormFields();
     } catch (error) {
-      console.log("user creation encountred an error", error);
+      if(error.code === 'auth/email-already-in-use'){
+        alert('connat create user email already in use')
+      }
+      else{
+        console.log("user creation encountred an error", error);
+      }
+      
     }
   };
 
