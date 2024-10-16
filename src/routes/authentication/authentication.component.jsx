@@ -1,10 +1,10 @@
 import React from "react";
 import "./authentication.styles.scss";
+import SignIn from "../../components/sign-in-form/sign-in-form.component";
+import SignUpForm from "../../components/sign-up-form/sing-up-form.component";
 // import { useEffect } from "react";
 // import { getRedirectResult } from "firebase/auth";
 
-import SignUpForm from "../../components/sign-up-form/sing-up-form.component";
-import SignIN from "../../components/sign-in-form/sign-in-form.component";
 
 function Authentication() {
   /* i use fetchRedirectResult beacuse the async
@@ -28,8 +28,8 @@ function Authentication() {
   return (
     <div className="authentication-container">
       {/* <button onClick={logGoogleUser}>Sign In With Google Popup</button> */}
-      <SignIN />
-      <SignUpForm />
+     <SignIn />
+     <SignUpForm />
     </div>
   );
 }
