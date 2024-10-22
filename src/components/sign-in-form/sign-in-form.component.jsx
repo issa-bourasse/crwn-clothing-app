@@ -5,6 +5,7 @@ import Button from "../button/button.component";
 import { UserContext } from "../../context/user.context";
 
 import {
+  createUserDocumentFromAuth,
   signInAuthUserWithEmailAndPassword,
   signInWithGooglePopup,
 } from "../../utils/firebase/firebase.utils";
@@ -24,11 +25,12 @@ const SignIn = () => {
 
   const resetFormFields = () => {
     setFormFields(defaultFormFields);
-  };
+  }; 
 
   const signInWithGoogle = async () => {
     const { user } = await signInWithGooglePopup();
     setCurrentUser(user);
+    createUserDocumentFromAuth(user);
   };
 
   const handleSubmit = async (event) => {
