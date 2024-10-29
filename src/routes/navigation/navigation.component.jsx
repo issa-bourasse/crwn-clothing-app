@@ -2,6 +2,7 @@ import { Outlet, Link } from "react-router-dom";
 import { Fragment, useContext } from "react";
 
 import { UserContext } from "../../context/user.context";
+import { CartContext } from "../../context/cart.context";
 
 //deferent methode to import logo by me Mr issa bourasse
 // import { ReactComponent as CrwnLogo } from "../../assets/crwn.svg";
@@ -17,6 +18,8 @@ import {signOutUser} from "../../utils/firebase/firebase.utils";
 const Navigation = () => {
   const { currentUser } = useContext(UserContext);
   console.log(currentUser);
+
+  const {isCartOpen} = useContext(CartContext);
 
   // const signOutHandler = async () =>{
   //   await signOutUser();
@@ -42,7 +45,7 @@ const Navigation = () => {
           )}
           <CartIcon />
         </div>
-        <CartDropdown />
+        {isCartOpen && <CartDropdown />}
       </div>
       <Outlet />
     </Fragment>
