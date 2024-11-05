@@ -1,20 +1,19 @@
-import React from "react";
-import "./button.styles.scss";
+import React from 'react';
+import './button.styles.scss';
 
-const BUTTON_TYPE_CLASSES = {
-  google: "google-sign-in",
-  inverted: "inverted",
+export const BUTTON_TYPE_CLASSES = {
+  google: 'google-sign-in',
+  inverted: 'inverted',
 };
 
-function Button({ children, buttonTyppe, ...otherProps }) {
+const Button = ({ children, buttonType, ...otherProps }) => {
+  const buttonClass = BUTTON_TYPE_CLASSES[buttonType] || '';
+
   return (
-    <button
-      className={`button-container ${BUTTON_TYPE_CLASSES[buttonTyppe]}`}
-      {...otherProps}
-    >
+    <button className={`button-container ${buttonClass}`} {...otherProps}>
       {children}
     </button>
   );
-}
+};
 
 export default Button;
